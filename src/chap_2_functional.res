@@ -1,7 +1,6 @@
 /*
   Uncomment the block below.
  */
-/*
 let downvotes = 10
 let upvotes = 5
 let cssClassName = if upvotes < downvotes {
@@ -9,7 +8,6 @@ let cssClassName = if upvotes < downvotes {
 } else {
   "Comment"
 }
-*/
 
 /*
   The (if/else-if/.../else) syntax is a "control flow" construct familiar
@@ -64,18 +62,26 @@ let cssClassName = if upvotes < downvotes {
   -----------------------------------------------------------------------------
  */
 
+
 /*
   Uncomment the block below for completing exercise 1.
  */
-/*
+
 let cartTotal = 220
-let discount = 0
+let discount = Belt.Float.toInt(if cartTotal >= 500 {
+  Belt.Int.toFloat(cartTotal) *. 0.1
+} else if cartTotal >= 200 {
+  (Belt.Int.toFloat(cartTotal - 200)) *. 0.05 +. 25.0
+} else {
+  0.0
+})
+
 SimpleTest.assertEqual(
   ~expected=26,
   ~actual=discount,
   ~msg="[exercise 1] Calculate discount for total amount of shopping cart",
 )
-*/
+
 
 /*
   The code above is not reusable. You need functions for creating reusable
@@ -168,9 +174,14 @@ SimpleTest.assertEqual(
 /*
   Uncomment the block below.
  */
-/*
 let calculateDiscount = (total: int): int => {
-  total // tests are failing
+  Belt.Float.toInt(if total >= 500 {
+    Belt.Int.toFloat(total) *. 0.1
+  } else if total >= 200 {
+    Belt.Int.toFloat(total - 200) *. 0.05 +. 25.0
+  } else {
+    0.0
+  })
 }
 SimpleTest.assertEqual(
   ~expected=0,
@@ -192,7 +203,6 @@ SimpleTest.assertEqual(
   ~actual=calculateDiscount(500),
   ~msg="[exercise 2] Calculate discount for 500",
 )
-*/
 
 /*
   Functions support **currying** of input arguments. This is evident
@@ -273,7 +283,7 @@ SimpleTest.assertEqual(
 /*
   Uncomment the block below.
  */
-/*
+
 let wrapTagAroundText = (tag: string, text: string): string => {
   `<${tag}>${text}</${tag}>`
 }
@@ -292,7 +302,7 @@ let mainHeading = makeHeading1("This is the title of the document")
 let subHeading = makeHeading2("A simple tagline...")
 let para1 = makeParagraph("Text content....")
 let para2 = makeParagraph("This is the second paragraph...")
-*/
+
 
 /*
   Partial application is useful for fixing an argument and then binding
@@ -339,8 +349,7 @@ let para2 = makeParagraph("This is the second paragraph...")
 /*
   Uncomment the block below.
  */
-/*
-let wrapTagAroundText2 = (tagName, indent: string => string, text) => {
+let wrapTagAroundText2 = (tagName, indent, text) => {
   let indentSpaces = indent(" ")
 
   `<${tagName}>
@@ -358,8 +367,7 @@ let makeDiv3 = text => wrapTagAroundText2("div", Js.String.repeat(2), text)
 // <div>
 //   <p>Hello, world!</p>
 // </div>
-makeDiv3(makeParagraph("Hello, world!"))
-*/
+let _ = makeDiv3(makeParagraph("Hello, world!"))
 
 /*
   You can pass a function as an argument to another function.
@@ -451,7 +459,7 @@ makeDiv3(makeParagraph("Hello, world!"))
 /*
   Uncomment the block below.
  */
-/*
+
 let betterWrapTagAroundText = (~tag, ~indent, ~text) => {
   let indentSpaces = indent(" ")
 
@@ -463,12 +471,11 @@ ${indentSpaces}${text}
 // <div>
 //   <p>Hello, world!</p>
 // </div>
-betterWrapTagAroundText(
+let _ = betterWrapTagAroundText(
   ~tag="div",
   ~indent=Js.String.repeat(2),
   ~text=makeParagraph("Hello, world!"),
 )
-*/
 
 /*
   The bindings you declare refer to **immutable** values. Immutability
@@ -520,7 +527,6 @@ betterWrapTagAroundText(
 /*
   Uncomment the block below.
  */
-/*
 let myCharRepeat = (~count, ~char) => {
   // Memoize the conversion of `char` value to a `string` value once
   // here. We do not want to keep invoking this function again and
@@ -543,8 +549,7 @@ let myCharRepeat = (~count, ~char) => {
 }
 
 // call site
-myCharRepeat(~char='@', ~count=6) // @@@@@@
-*/
+let _  = myCharRepeat(~char='@', ~count=6) // @@@@@@
 /*
   If you are not used to writing recursive functions it is going to take
   a while before you wrap your head around it.
