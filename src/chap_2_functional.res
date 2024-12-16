@@ -651,14 +651,13 @@ let _  = myCharRepeat(~char='@', ~count=6) // @@@@@@
 /*
   Uncomment the block below.
  */
-/*
 
 // original nested call site
 //
 // returns:
 //  <div><div><div><p>Hello, world!</p></div></div></div>
 //
-wrapTagAroundText(
+let _ = wrapTagAroundText(
   "div",
   wrapTagAroundText("div", wrapTagAroundText("div", wrapTagAroundText("p", "Hello, world!"))),
 )
@@ -669,7 +668,7 @@ let wrapTagAroundText3 = (text, tag) => `<${tag}>${text}</${tag}>`
 // returns:
 // <div><div><div><p>Hello, world!</p></div></div></div>
 //
-"Hello, world!"
+let _ = "Hello, world!"
 ->wrapTagAroundText3("p")
 ->wrapTagAroundText3("div")
 ->wrapTagAroundText3("div")
@@ -683,12 +682,11 @@ let wrapTagAroundText4 = (text, ~tag) => `<${tag}>${text}</${tag}>`
 // returns:
 // <div><div><div><p>Hello, world!</p></div></div></div>
 //
-"Hello, world!"
+let _ = "Hello, world!"
 ->wrapTagAroundText4(~tag="p")
 ->wrapTagAroundText4(~tag="div")
 ->wrapTagAroundText4(~tag="div")
 ->wrapTagAroundText4(~tag="div")
- */
 
 /*
   There are 3 different call-sites above:
@@ -806,7 +804,7 @@ let wrapTagAroundText4 = (text, ~tag) => `<${tag}>${text}</${tag}>`
 /*
   Uncomment the line below.
  */
-// let unitValue: unit = ()
+let unitValue: unit = ()
 
 /*
   The `unit` type is a primitive. It has only a single value represented
@@ -838,7 +836,7 @@ let wrapTagAroundText4 = (text, ~tag) => `<${tag}>${text}</${tag}>`
 /*
   Uncomment the line below.
  */
-// let timestamp = Js.Date.now()
+let timestamp = Js.Date.now()
 
 /*
   The JS Date API `now()` returns the current time as number of milliseconds
@@ -859,7 +857,7 @@ let wrapTagAroundText4 = (text, ~tag) => `<${tag}>${text}</${tag}>`
 /*
   Uncomment the line below.
  */
-// Js.log("takes one input, returns nothing!")
+Js.log("takes one input, returns nothing!")
 
 /*
   The `Js.log` is the binding for JS API `console.log`.
@@ -880,7 +878,6 @@ let wrapTagAroundText4 = (text, ~tag) => `<${tag}>${text}</${tag}>`
 /*
   Uncomment the block below.
  */
-/*
 let addThreeNumbers = (x, y, z) => {
   Js.log("x : " ++ Belt.Int.toString(x))
   Js.log("y : " ++ Belt.Int.toString(y))
@@ -892,8 +889,7 @@ let addThreeNumbers = (x, y, z) => {
   result
 }
 
-addThreeNumbers(1, 2, 3)
-*/
+let _ = addThreeNumbers(1, 2, 3)
 
 /*
   ReScript is not a **pure** functional language. You can use a side-effects 

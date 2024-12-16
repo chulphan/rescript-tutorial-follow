@@ -109,11 +109,42 @@ function myCharRepeat(count, $$char) {
 
 myCharRepeat(6, /* "@" */64);
 
+wrapTagAroundText("div", wrapTagAroundText("div", wrapTagAroundText("div", wrapTagAroundText("p", "Hello, world!"))));
+
+function wrapTagAroundText3(text, tag) {
+  return "<" + tag + ">" + text + "</" + tag + ">";
+}
+
+wrapTagAroundText3(wrapTagAroundText3(wrapTagAroundText3(wrapTagAroundText3("Hello, world!", "p"), "div"), "div"), "div");
+
+function wrapTagAroundText4(text, tag) {
+  return "<" + tag + ">" + text + "</" + tag + ">";
+}
+
+wrapTagAroundText4(wrapTagAroundText4(wrapTagAroundText4(wrapTagAroundText4("Hello, world!", "p"), "div"), "div"), "div");
+
+var timestamp = Date.now();
+
+console.log("takes one input, returns nothing!");
+
+function addThreeNumbers(x, y, z) {
+  console.log("x : " + String(x));
+  console.log("y : " + String(y));
+  console.log("z : " + String(z));
+  var result = (x + y | 0) + z | 0;
+  console.log("sum (x + y + z) = " + String(result));
+  return result;
+}
+
+addThreeNumbers(1, 2, 3);
+
 var downvotes = 10;
 
 var upvotes = 5;
 
 var cartTotal = 220;
+
+var unitValue;
 
 exports.downvotes = downvotes;
 exports.upvotes = upvotes;
@@ -137,4 +168,9 @@ exports.makeDiv2 = makeDiv2;
 exports.makeDiv3 = makeDiv3;
 exports.betterWrapTagAroundText = betterWrapTagAroundText;
 exports.myCharRepeat = myCharRepeat;
+exports.wrapTagAroundText3 = wrapTagAroundText3;
+exports.wrapTagAroundText4 = wrapTagAroundText4;
+exports.unitValue = unitValue;
+exports.timestamp = timestamp;
+exports.addThreeNumbers = addThreeNumbers;
 /*  Not a pure module */
