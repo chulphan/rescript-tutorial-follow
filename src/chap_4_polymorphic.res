@@ -35,11 +35,9 @@ type pair<'a> = ('a, 'a)
 /*
   Uncomment the block below.
  */
-/*
 let center: pair<int> = (960, 540)
 let leroy: pair<string> = ("Xavier", "Leroy")
 let coords: pair<float> = (101.5, 42.3)
- */
 
 /*
   Next let us look at functions which operates on polymorphic or generic
@@ -50,10 +48,8 @@ let coords: pair<float> = (101.5, 42.3)
 /*
   Uncomment the block below.
  */
-/*
 let firstInPair = ((first, _): pair<'a>) => first
 let secondInPair = ((_, second): pair<'a>) => second
- */
 
 /*
   The same function implementation can be reused for `pair<int>`, 
